@@ -1,3 +1,37 @@
+/* Apply to the main container or body to remove horizontal scroll */
+body, .container, .formContainer, .sidebar, .chat {
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+/* Ensure that elements within the container don’t cause overflow */
+.container, .formContainer {
+  width: 100vw; /* Ensure full viewport width */
+  box-sizing: border-box; /* Include padding and borders in element's total width */
+}
+
+.sidebar, .chat {
+  width: 100%; /* Ensure they don't overflow */
+  box-sizing: border-box; /* Include padding and borders in element's total width */
+}
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 15px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5); /* Background of the scrollbar track */
+  border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333; /* Color of the scrollbar thumb on hover */
+}
+
 @mixin mobile {
   @media screen and (max-width: 480px) {
     @content;
@@ -104,7 +138,7 @@
   backdrop-filter: blur(10px); // Apply blur effect
 
   .container {
-    border: 1px solid #4caf50; // Green border
+    border: 3px solid #4caf4f5d; // Green border
     border-radius: 10px;
     width: 65%;
     height: 80%;
@@ -117,9 +151,15 @@
 
     .sidebar {
       flex: 1;
-      background: rgba(0, 0, 0, 0.8); // Dark transparent background for sidebar
-      backdrop-filter: blur(10px); // Apply blur effect
-
+      border: 2px solid rgba(76, 175, 80, 0.5); // Semi-transparent green border for a subtle glass effect
+      border-radius: 10px; // Rounded corners for the glass effect
+      background: rgba(0, 0, 0, 0.3); // Semi-transparent dark background for the glass effect
+      backdrop-filter: blur(15px); // Apply a stronger blur effect for the glass effect
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Optional: add subtle shadow for depth
+      padding: 10px; // Add padding inside the sidebar
+      overflow: hidden; // Ensure no overflow outside the rounded corners
+    
+    
       .navbar {
         display: flex;
         align-items: center;
@@ -132,6 +172,7 @@
 
         .logo {
           font-weight: bold;
+          margin-left: 4%;
           @include tablet {
             display: none;
           }
@@ -150,17 +191,17 @@
           }
 
           button {
-            background-color: #4caf50; // Green background for button
-            color: #fff;
-            font-size: 10px;
             border: none;
+            border-radius: 20px;
+            font-size: 10px;
+            padding: 5px 10px;
+            color: white;
+            background-color: #4caf50; // Green background for button
             cursor: pointer;
-            @include tablet {
-              position: absolute;
-              bottom: 10px;
-            }
+            backdrop-filter: blur(5px); // Apply blur effect
           }
-        }
+          }
+        
       }
 
       .search {
@@ -246,6 +287,8 @@
         height: calc(100% - 160px);
         overflow: scroll;
         backdrop-filter: blur(10px); // Apply blur effect
+        overflow-x: hidden; /* Hide horizontal overflow */
+
 
         .message {
           display: flex;
@@ -312,10 +355,10 @@
 
         input {
           width: 100%;
-          border: none;
-          outline: none;
+          border-radius: 20px;
+          border: 2px;          
           color: #fff; // White text color
-          font-size: 18px;
+          font-size: 16px;
           background: rgba(0, 0, 0, 0.6); // Transparent background for input
           backdrop-filter: blur(5px); // Apply blur effect
 
@@ -336,7 +379,7 @@
 
           button {
             border: none;
-            border-radius: 40%;
+            border-radius: 20px;
             padding: 10px 15px;
             color: white;
             background-color: #4caf50; // Green background for button

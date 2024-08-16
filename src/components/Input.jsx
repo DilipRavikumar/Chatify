@@ -135,7 +135,7 @@ const Input = () => {
     <div className="input">
       <input
         type="text"
-        placeholder="Type something..."
+        placeholder="   Type something..."
         onChange={(e) => setText(e.target.value)}
         value={text}
       />
