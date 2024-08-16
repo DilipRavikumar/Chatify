@@ -1,3 +1,4 @@
+
 /* Apply to the main container or body to remove horizontal scroll */
 body, .container, .formContainer, .sidebar, .chat {
   overflow-x: hidden; /* Hide horizontal overflow */
@@ -151,9 +152,8 @@ body, .container, .formContainer, .sidebar, .chat {
 
     .sidebar {
       flex: 1;
-      border: 2px solid rgba(76, 175, 80, 0.5); // Semi-transparent green border for a subtle glass effect
-      border-radius: 10px; // Rounded corners for the glass effect
-      background: rgba(0, 0, 0, 0.3); // Semi-transparent dark background for the glass effect
+      background: rgba(34, 34, 34, 0.9); // Dark transparent background for messages
+      border: #000000;
       backdrop-filter: blur(15px); // Apply a stronger blur effect for the glass effect
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Optional: add subtle shadow for depth
       padding: 10px; // Add padding inside the sidebar
@@ -163,7 +163,8 @@ body, .container, .formContainer, .sidebar, .chat {
       .navbar {
         display: flex;
         align-items: center;
-        background: rgba(0, 0, 0, 0.8); // Dark background for navbar
+        border-radius: 40px;
+        background: rgba(34, 34, 34, 0.9); // Dark transparent background for messages
         height: 50px;
         padding: 10px;
         justify-content: space-between;
@@ -208,10 +209,13 @@ body, .container, .formContainer, .sidebar, .chat {
         border-bottom: 1px solid #4caf50; // Green border
 
         .searchForm {
-          padding: 10px;
+          padding: 24px;
 
           input {
-            background: rgba(0, 0, 0, 0.6); // Transparent background for search input
+            width: 100%;
+            border-radius: 40px;
+            padding: 6px;
+            background: rgba(34, 34, 34, 0.9); // Dark transparent background for messages
             border: none;
             color: #fff; // White text color
             outline: none;
@@ -225,6 +229,8 @@ body, .container, .formContainer, .sidebar, .chat {
       }
 
       .userChat {
+        border-radius: 40px;
+        margin-top: 5%;
         padding: 10px;
         display: flex;
         align-items: center;
@@ -234,7 +240,8 @@ body, .container, .formContainer, .sidebar, .chat {
         backdrop-filter: blur(5px); // Apply blur effect
 
         &:hover {
-          background-color: rgba(0, 0, 0, 0.8); // Slightly darker on hover
+          border-radius: 40px;
+          background-color: rgba(0, 0, 0, 0.284); // Slightly darker on hover
         }
 
         img {
@@ -262,7 +269,8 @@ body, .container, .formContainer, .sidebar, .chat {
 
       .chatInfo {
         height: 50px;
-        background: rgba(0, 0, 0, 0.8); // Dark transparent background for chat info
+        background: rgba(241, 240, 240, 0.099); // Dark transparent background for chat info
+        opacity: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -291,6 +299,7 @@ body, .container, .formContainer, .sidebar, .chat {
 
 
         .message {
+          
           display: flex;
           gap: 20px;
           margin-bottom: 20px;
@@ -316,7 +325,7 @@ body, .container, .formContainer, .sidebar, .chat {
             gap: 10px;
 
             p {
-              background: rgba(0, 0, 0, 0.7); // Dark transparent background for message
+              background: rgba(0, 0, 0, 0.273); // Dark transparent background for message
               padding: 10px 20px;
               border-radius: 0px 10px 10px 10px;
               max-width: max-content;
@@ -335,7 +344,7 @@ body, .container, .formContainer, .sidebar, .chat {
               align-items: flex-end;
 
               p {
-                background: rgba(76, 175, 80, 0.7); // Green background for owner message
+                background: rgba(84, 203, 88, 0.392); // Green background for owner message
                 color: #fff; // White text color
                 border-radius: 10px 0px 10px 10px;
               }
@@ -346,7 +355,7 @@ body, .container, .formContainer, .sidebar, .chat {
 
       .input {
         height: 50px;
-        background: rgba(34, 34, 34, 0.8); // Dark transparent background for input
+        background: rgba(34, 34, 34, 0.834); // Dark transparent background for input
         padding: 10px;
         display: flex;
         align-items: center;
@@ -355,11 +364,12 @@ body, .container, .formContainer, .sidebar, .chat {
 
         input {
           width: 100%;
+          padding: 8px;
           border-radius: 20px;
           border: 2px;          
-          color: #fff; // White text color
+          color: #ffffffc2; // White text color
           font-size: 16px;
-          background: rgba(0, 0, 0, 0.6); // Transparent background for input
+          background: rgba(0, 0, 0, 0.408); // Transparent background for input
           backdrop-filter: blur(5px); // Apply blur effect
 
           &::placeholder {
