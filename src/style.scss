@@ -197,7 +197,7 @@ body, .container, .formContainer, .sidebar, .chat {
           color: #b0b0b0; // Light gray placeholder
         }
       }
-
+   
       button {
         background-color: #4caf50; // Green background for button
         color: white;
@@ -363,6 +363,84 @@ body, .container, .formContainer, .sidebar, .chat {
         }
       }
     }
+/* Chat.css */
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative; /* Ensure the chat container is relative for positioning */
+}
+
+.chatInfo {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border-bottom: 1px solid #4caf50;
+}
+
+.profile-container {
+  margin-right: 15px;
+  cursor: pointer; /* Indicate clickable */
+  position: relative; /* Position relative for correct modal positioning */
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-name {
+  flex: 1;
+  font-size: 18px;
+}
+
+.chatIcons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chatIcons img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.user-info-modal {
+  margin-left: 20%;
+  margin-top: 5%;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  color: #fff; /* White text color for better contrast */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for better visibility */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border for subtle separation */
+  z-index: 1000; /* Ensure modal is on top */
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info-modal p {
+  margin: 5px 0;
+}
+
+.user-info-modal button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
 
     .chat {
       flex: 2;

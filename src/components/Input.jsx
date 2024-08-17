@@ -13,6 +13,7 @@ import {
 import { db, storage } from "../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import Picker from "@emoji-mart/react";
 
 const Input = () => {
   const [text, setText] = useState("");
@@ -20,6 +21,7 @@ const Input = () => {
   const [imgPreview, setImgPreview] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
@@ -131,6 +133,10 @@ const Input = () => {
     setImgPreview(null);
   };
 
+  const addEmoji = (emoji) => {
+    setText(text + emoji.native);
+  };
+
   return (
     <div className="input">
       <input
@@ -140,6 +146,17 @@ const Input = () => {
         value={text}
       />
       <div className="send">
+        <img
+          src="https://img.icons8.com/ios-glyphs/30/000000/happy.png"
+          alt="Emoji picker"
+          onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+        />
+        {showEmojiPicker && (
+          <Picker
+            onEmojiSelect={addEmoji}
+            style={{ position: "absolute", bottom: "50px", right: "50px" }}
+          />
+        )}
         <label htmlFor="file">
           <img src={Attach} alt="Attach file" />
         </label>

@@ -62,7 +62,9 @@ const Search = () => {
       currentUser.uid > user.uid
         ? currentUser.uid + user.uid
         : user.uid + currentUser.uid;
-    
+
+    console.log("Handling chat creation with combinedId:", combinedId); // Debugging
+
     try {
       const chatDoc = doc(db, "chats", combinedId);
       const res = await getDoc(chatDoc);
@@ -73,28 +75,32 @@ const Search = () => {
 
         // Create user chats
         await updateDoc(doc(db, "userChats", currentUser.uid), {
-          [combinedId + ".userInfo"]: {
+          [`${combinedId}.userInfo`]: {
             uid: user.uid,
             displayName: user.displayName,
-            photoURL: user.photoURL,
+            photoURL: user.photoURL || "/default-avatar.png", // Fallback image
           },
-          [combinedId + ".date"]: serverTimestamp(),
+          [`${combinedId}.date`]: serverTimestamp(),
         });
 
         await updateDoc(doc(db, "userChats", user.uid), {
-          [combinedId + ".userInfo"]: {
+          [`${combinedId}.userInfo`]: {
             uid: currentUser.uid,
             displayName: currentUser.displayName,
-            photoURL: currentUser.photoURL,
+            photoURL: currentUser.photoURL || "/default-avatar.png", // Fallback image
           },
-          [combinedId + ".date"]: serverTimestamp(),
+          [`${combinedId}.date`]: serverTimestamp(),
         });
       }
+
+      console.log("Chat created successfully."); // Debugging
+
     } catch (err) {
       console.error("Error handling chat creation:", err.message);
       setErr("An error occurred while creating chat.");
     }
 
+    // Clear user selection and input
     setUser(null);
     setUsername("");
   };
@@ -104,7 +110,7 @@ const Search = () => {
       <div className="searchForm">
         <input
           type="text"
-          placeholder="  Find a user"
+          placeholder="Find a user"
           onKeyDown={handleKey}
           onChange={(e) => setUsername(e.target.value)}
           value={username}
@@ -113,7 +119,7 @@ const Search = () => {
       {err && <span className="error">{err}</span>}
       {user && (
         <div className="userChat" onClick={handleSelect}>
-          <img src={user.photoURL} alt="User Avatar" />
+          <img src={user.photoURL || "/default-avatar.png"} alt="User Avatar" />
           <div className="userChatInfo">
             <span>{user.displayName}</span>
           </div>
