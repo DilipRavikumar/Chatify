@@ -532,9 +532,9 @@ body, .container, .formContainer, .sidebar, .chat {
       }
       .img-preview {
         position: fixed;
-        bottom:2%;
-        left: 50%;
-        transform: translate(-64%, -30%);
+        bottom: 80px;
+        left: 250px; /* Center horizontally */
+        transform: translate(-50%, 0); /* Adjust vertical position */
         width: 60%; /* Adjust the width to control the size */
         max-width: 600px; /* Set a maximum width */
         max-height: 80vh; /* Limit the height to 80% of the viewport height */
